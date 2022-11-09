@@ -1,0 +1,9 @@
+$font-size-normal: 32px;
+
+$bg-color: #1989fa;
+
+@mixin box-shadow($bulr: 20px, $color: #1989fa7a) {
+    -webkit-box-shadow: 0px 0px $bulr $color;
+    -moz-box-shadow: 0px 0px $bulr $color;
+    box-shadow: 0px 0px $bulr $color;
+}

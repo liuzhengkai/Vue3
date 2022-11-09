@@ -1,9 +1,11 @@
 import {
-    request
+    request,
+    requestToken
 } from './request.js';
 
 const dsUtils = {
-    request
+    request,
+    requestToken
 }
 
 export {

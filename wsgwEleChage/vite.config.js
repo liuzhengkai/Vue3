@@ -16,8 +16,21 @@ export default defineConfig({
     }
   },
   server: {
+    open: true,
     proxy: {
-      '/api': HOST
+      '/api/': {
+        target: JSON.parse(HOST),
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, '')
+      }
     }
-  }
+  },
+  //全局引入
+  css: {
+    cssPreprocessOptions: {
+      scss: {
+         additionalData: '@import "../wsgwEleChage/src/assets/style/globalVar.scss";' // 全局公共样式
+      }
+   }
+  },
 })

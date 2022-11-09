@@ -1,14 +1,13 @@
 <script setup>
-  
+
 </script>
 
 <template>
-  <router-link to="/index">index</router-link>
-  <router-link to="/log">log</router-link>
   <router-view/>
 </template>
 
 <style scoped>
+
 header {
   line-height: 1.5;
 }

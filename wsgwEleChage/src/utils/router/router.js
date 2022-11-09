@@ -7,8 +7,8 @@ const routes = [{
     path: '/index',
     component: ()=> import('../../pages/index/index.vue')
 },{
-    path: '/log',
-    component: ()=> import('../../pages/log/log.vue')
+    path: '/eleList',
+    component: ()=> import('../../packageDSEleCharge/pages/eleList/eleList.vue')
 }]
 
 const router = createRouter({

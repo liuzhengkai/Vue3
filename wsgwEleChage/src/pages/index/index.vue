@@ -1,16 +1,12 @@
-<template>
-    <div>
-        index
-    </div>
-</template>
-
 <script setup>
-import { onMounted } from 'vue'
-import dsUtils from '../../utils/dsUtils.js'
+import { onMounted, onScopeDispose } from 'vue'
+import { dsUtils } from '../../utils/dsUtils.js'
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
 
 onMounted(()=> {
-    dsUtils.request({
+    dsUtils.requestToken({
         url: 'osg-uc0012/member/c2/f01',
         data: {
             uscInfo: {
@@ -28,13 +24,17 @@ onMounted(()=> {
                 addressProvince: 110100,
                 pushId: "1a0018970ab49abf389"
             }
+        },
+        isResponseAll: true,
+        code: 1
+    }).then(res=> {
+        if(res?.data?.bizrt?.token) {
+            window.localStorage.setItem("token",res?.data?.bizrt?.token)
+            router.push('elelist')
         }
+    }).catch(err=> {
+        console.log('err',err)
     })
 })
-
     
 </script>
-
-<style lang="scss" scoped>
-
-</style>
